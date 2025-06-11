@@ -28,7 +28,6 @@ public class Script : ScriptBase
 
         return response;
     }
-
     private string ConvertNullsToEmptyStrings(string jsonString)
     {
         if (string.IsNullOrEmpty(jsonString))
@@ -36,7 +35,10 @@ public class Script : ScriptBase
         try
         {
             var token = JToken.Parse(jsonString);
-            ProcessToken(token);
+            var typeCache = new Dictionary<string, JTokenType>();
+
+            BuildTypeCache(token, typeCache);
+            ProcessToken(token, typeCache);
             return token.ToString(Newtonsoft.Json.Formatting.None);
         }
         catch (JsonReaderException)
@@ -44,18 +46,11 @@ public class Script : ScriptBase
             return jsonString;
         }
     }
-    private void ProcessToken(JToken token)
+    private void ProcessToken(JToken token, Dictionary<string, JTokenType> typeCache)
     {
         switch (token.Type)
         {
             case JTokenType.Object:
-                var typeCache = new Dictionary<string, JTokenType>();
-
-                if (token.Root.Type == JTokenType.Array)
-                {
-                    BuildTypeCache(token.Root, typeCache);
-                }
-
                 foreach (var property in token.Children<JProperty>().ToList())
                 {
                     if (property.Value.Type == JTokenType.Null)
@@ -77,12 +72,20 @@ public class Script : ScriptBase
                         }
                         else
                         {
-                            property.Value = "";
+                            var inferredType = InferTypeFromPropertyName(property.Name);
+                            if (inferredType == JTokenType.Boolean)
+                            {
+                                property.Remove();
+                            }
+                            else
+                            {
+                                property.Value = GetDefaultForType(inferredType);
+                            }
                         }
                     }
                     else
                     {
-                        ProcessToken(property.Value);
+                        ProcessToken(property.Value, typeCache);
                     }
                 }
                 break;
@@ -96,30 +99,41 @@ public class Script : ScriptBase
                     }
                     else
                     {
-                        ProcessToken(item);
+                        ProcessToken(item, typeCache);
                     }
                 }
                 break;
         }
     }
-
-    private void BuildTypeCache(JToken root, Dictionary<string, JTokenType> typeCache)
+    private void BuildTypeCache(JToken token, Dictionary<string, JTokenType> typeCache)
     {
-        foreach (var item in root.Children())
+        if (token.Type == JTokenType.Array)
         {
-            if (item.Type == JTokenType.Object)
+            foreach (var item in token.Children())
             {
-                foreach (var prop in item.Children<JProperty>())
+                if (item.Type == JTokenType.Object)
                 {
-                    if (prop.Value.Type != JTokenType.Null && !typeCache.ContainsKey(prop.Name))
+                    foreach (var prop in item.Children<JProperty>())
                     {
-                        typeCache[prop.Name] = prop.Value.Type;
+                        if (prop.Value.Type != JTokenType.Null && !typeCache.ContainsKey(prop.Name))
+                        {
+                            typeCache[prop.Name] = prop.Value.Type;
+                        }
                     }
                 }
             }
         }
+        else if (token.Type == JTokenType.Object)
+        {
+            foreach (var prop in token.Children<JProperty>())
+            {
+                if (prop.Value.Type != JTokenType.Null && !typeCache.ContainsKey(prop.Name))
+                {
+                    typeCache[prop.Name] = prop.Value.Type;
+                }
+            }
+        }
     }
-
     private JToken GetDefaultForType(JTokenType tokenType)
     {
         switch (tokenType)
@@ -136,5 +150,58 @@ public class Script : ScriptBase
             default:
                 return "";
         }
+    }
+
+    // Add specific property name checks to infer types    
+    private JTokenType InferTypeFromPropertyName(string propertyName)
+    {
+        var lowerName = propertyName.ToLower();
+
+        // Date/time fields should be strings (highest priority)
+        if (lowerName.EndsWith("_at") ||
+            lowerName.EndsWith("_updated") ||
+            lowerName.EndsWith("_date") ||
+            lowerName.EndsWith("_time") ||
+            lowerName.Contains("created") ||
+            lowerName.Contains("updated") ||
+            lowerName.Contains("deleted") ||
+            lowerName.Equals("at"))
+        {
+            return JTokenType.String;
+        }
+
+        if (lowerName.Contains("hours") ||
+            lowerName.Contains("seconds") ||
+            lowerName.Contains("count") ||
+            lowerName.EndsWith("_count") ||
+            lowerName.Equals("total_count"))
+        {
+            return JTokenType.Integer;
+        }
+
+        if (lowerName.Contains("rate") ||
+            lowerName.Contains("fee") ||
+            lowerName.Contains("cost") ||
+            lowerName.Contains("amount") ||
+            lowerName.Contains("price"))
+        {
+            return JTokenType.Float;
+        }
+        if (lowerName.Contains("parameters") &&
+            (lowerName.Contains("recurring") || lowerName.EndsWith("_parameters")))
+        {
+            return JTokenType.Array;
+        }
+
+        if (lowerName.Contains("metadata") ||
+            lowerName.Contains("_config") ||
+            lowerName.Contains("settings") ||
+            lowerName.Contains("_object") ||
+            lowerName.EndsWith("_data"))
+        {
+            return JTokenType.Object;
+        }
+
+        return JTokenType.String;
     }
 }
