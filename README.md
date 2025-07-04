@@ -1,6 +1,9 @@
 # Connector Code
 This repo contains script files that will work with Power Platform connectors.
 
+### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/blob/main/.github/copilot-instructions.md)
+This file can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
+
 ### [Handle Null Values](https://github.com/troystaylor/Connector-Code/blob/main/HandleNullValues.csx)
 This script is designed to work with APIs that return null values instead of empty values. Power Platform connectors currently are defined as Swagger, which does not allow null or multiple values. Contains an optional method InferTypeFromPropertyName to define custom field types based on property/field/key name.
 
