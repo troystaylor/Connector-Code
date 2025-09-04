@@ -142,10 +142,10 @@ gantt
     Tools Capability           :done, tools, 2024-01-01, 2025-09-04
     Logging Capability          :done, logging, 2024-06-01, 2025-09-04
     section Future Roadmap
-    Resources Capability        :future, resources, 2025-09-04, 2026-03-01
-    Prompts Capability          :future, prompts, 2025-09-04, 2026-03-01
-    Progress Notifications      :future, progress, 2025-09-04, 2026-06-01
-    Cancellation Support        :future, cancel, 2025-09-04, 2026-06-01
+    Resources Capability        :active, resources, 2025-09-04, 2026-03-01
+    Prompts Capability          :active, prompts, 2025-09-04, 2026-03-01
+    Progress Notifications      :active, progress, 2025-09-04, 2026-06-01
+    Cancellation Support        :active, cancel, 2025-09-04, 2026-06-01
 ```
 
 ### Implementation Strategy
@@ -1925,5 +1925,4 @@ This dual-authentication model provides robust security for MCP servers while ma
 ---
 
 *Last Updated: September 4, 2025*
-*Author: [Your Name]*
-*Blog: [Your Blog URL]*
+*Author: Troy Taylor (troy@troystaylor.com)*
