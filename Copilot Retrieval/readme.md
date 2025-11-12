@@ -32,7 +32,7 @@ graph TB
     Direct -->|Query Parameters:<br/>queryString, dataSource,<br/>filterExpression, etc.| Graph
     
     Graph -->|OAuth 2.0<br/>Files.Read.All<br/>Sites.Read.All| SPO
-    Graph -->|OAuth 2.0<br/>Files.Read.All<br/>Sites.Read.All| ODB
+    Graph -->|OAuth 2.0<br/>Files.Read.All| ODB
     Graph -->|OAuth 2.0<br/>ExternalItem.Read.All| CC
     
     SPO -->|Text Extracts +<br/>Relevance Scores +<br/>Metadata| Graph
@@ -115,7 +115,7 @@ sequenceDiagram
 ## Obtaining Credentials
 This connector uses OAuth 2.0 authentication with Microsoft Entra ID. The following permissions are required:
 - `Files.Read.All` - Required for SharePoint and OneDrive retrieval
-- `Sites.Read.All` - Required for SharePoint and OneDrive retrieval
+- `Sites.Read.All` - Required for SharePoint retrieval only
 - `ExternalItem.Read.All` - Required for Copilot connectors retrieval
 
 ## Supported Operations
