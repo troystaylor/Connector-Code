@@ -31,9 +31,9 @@ graph TB
     MCP -->|4 Tools Available:<br/>• retrieve_from_sharepoint<br/>• retrieve_from_onedrive<br/>• retrieve_from_copilot_connectors<br/>• retrieve_multi_source| Graph
     Direct -->|Query Parameters:<br/>queryString, dataSource,<br/>filterExpression, etc.| Graph
     
-    Graph -->|OAuth 2.0<br/>Files.Read.All<br/>Sites.Read.All<br/>ExternalItem.Read.All| SPO
-    Graph -->|OAuth 2.0| ODB
-    Graph -->|OAuth 2.0| CC
+    Graph -->|OAuth 2.0<br/>Files.Read.All<br/>Sites.Read.All| SPO
+    Graph -->|OAuth 2.0<br/>Files.Read.All<br/>Sites.Read.All| ODB
+    Graph -->|OAuth 2.0<br/>ExternalItem.Read.All| CC
     
     SPO -->|Text Extracts +<br/>Relevance Scores +<br/>Metadata| Graph
     ODB -->|Text Extracts +<br/>Relevance Scores +<br/>Metadata| Graph
@@ -46,8 +46,8 @@ graph TB
     Direct -->|JSON Response| PA
     
     style CS fill:#742774,stroke:#4a1a4a,color:#fff
-    style PA fill:#0066cc,stroke:#004080,color:#fff
-    style MCP fill:#da3b01,stroke:#a52a00,color:#fff
+    style PA fill:#da3b01,stroke:#a52a00,color:#fff
+    style MCP fill:#0066cc,stroke:#004080,color:#fff
     style Direct fill:#107c10,stroke:#094c09,color:#fff
     style Graph fill:#0078d4,stroke:#004578,color:#fff
     style SPO fill:#036c70,stroke:#024547,color:#fff
