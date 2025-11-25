@@ -10,6 +10,9 @@ This custom code converts a string to a hash using MD5, SHA1, SHA256, or SHA512 
 ### [Download File without Connector Authorization](https://github.com/troystaylor/Connector-Code/tree/main/Download%20File%20without%20Connector%20Authorization)
 This custom code downloads a file from a URL provided as a query parameter, bypassing the connector's standard authorization. Useful for downloading files from URLs that don't require the connector's credentials.
 
+### [Escape HTML Response](https://github.com/troystaylor/Connector-Code/tree/main/EscapeHTMLResponse)
+This custom code removes unwanted HTML elements from an API response. Specifically designed to strip social media widgets and GitHub buttons from weather API responses (wttr.in), making the response cleaner for display.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
