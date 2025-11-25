@@ -25,6 +25,9 @@ Custom code needed to fix the Airtable connector when the service moved from API
 ### [OKTA](https://github.com/troystaylor/Connector-Code/tree/main/OKTA)
 Custom code for OKTA OAuth 2.0 client credentials authentication. Handles the token exchange from Basic Auth to Bearer token for OKTA API calls. Configure your OKTA domain and required scopes in the script variables.
 
+### [Set ConnectionParameter to Body Key](https://github.com/troystaylor/Connector-Code/tree/main/Set%20ConnectionParameter%20to%20Body%20Key)
+Workaround for Set Property Policy Template issue when using connection parameters to set POST request body keys. Uses Set Query String Parameter policy then moves the parameter to the request body via custom code.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
