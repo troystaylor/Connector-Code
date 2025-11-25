@@ -13,6 +13,9 @@ This custom code downloads a file from a URL provided as a query parameter, bypa
 ### [Escape HTML Response](https://github.com/troystaylor/Connector-Code/tree/main/EscapeHTMLResponse)
 This custom code removes unwanted HTML elements from an API response. Specifically designed to strip social media widgets and GitHub buttons from weather API responses (wttr.in), making the response cleaner for display.
 
+### [JWT Authentication](https://github.com/troystaylor/Connector-Code/tree/main/JWT%20Authentication)
+Custom code for JWT-based authentication. User creating connection reference will need to set the authentication URL in the variable authURL.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
