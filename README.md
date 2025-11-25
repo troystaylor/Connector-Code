@@ -22,6 +22,9 @@ Custom code examples for handling non-standard OAuth 2.0 authentication flows. I
 ### [OAuth 2.0 PKCE](https://github.com/troystaylor/Connector-Code/tree/main/OAuth%202.0%20PKCE)
 Custom code needed to fix the Airtable connector when the service moved from API key to OAuth 2.0 PKCE authentication.
 
+### [OKTA](https://github.com/troystaylor/Connector-Code/tree/main/OKTA)
+Custom code for OKTA OAuth 2.0 client credentials authentication. Handles the token exchange from Basic Auth to Bearer token for OKTA API calls. Configure your OKTA domain and required scopes in the script variables.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
