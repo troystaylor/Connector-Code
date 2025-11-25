@@ -28,6 +28,9 @@ Custom code for OKTA OAuth 2.0 client credentials authentication. Handles the to
 ### [Set ConnectionParameter to Body Key](https://github.com/troystaylor/Connector-Code/tree/main/Set%20ConnectionParameter%20to%20Body%20Key)
 Workaround for Set Property Policy Template issue when using connection parameters to set POST request body keys. Uses Set Query String Parameter policy then moves the parameter to the request body via custom code.
 
+### [SetRequestValueAsKeyName](https://github.com/troystaylor/Connector-Code/tree/main/SetRequestValueAsKeyName)
+Custom code for APIs requiring dynamic key names in request bodies. Developed for Databox API where metric key IDs must be used as JSON property names in a specific nested structure.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
