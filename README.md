@@ -31,6 +31,9 @@ Workaround for Set Property Policy Template issue when using connection paramete
 ### [SetRequestValueAsKeyName](https://github.com/troystaylor/Connector-Code/tree/main/SetRequestValueAsKeyName)
 Custom code for APIs requiring dynamic key names in request bodies. Developed for Databox API where metric key IDs must be used as JSON property names in a specific nested structure.
 
+### [XML API](https://github.com/troystaylor/Connector-Code/tree/main/XML%20API)
+Custom code to convert JSON requests to XML for APIs that require XML format, and converts XML responses back to JSON. Originally created for the Moneris payment gateway API.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
