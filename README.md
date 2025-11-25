@@ -7,6 +7,9 @@ This custom code works with the API Key security method when the parameter name 
 ### [Convert String to Hash](https://github.com/troystaylor/Connector-Code/tree/main/Convert%20String%20to%20Hash)
 This custom code converts a string to a hash using MD5, SHA1, SHA256, or SHA512 algorithms. The script takes a string and hash type as input and returns the hashed value.
 
+### [Download File without Connector Authorization](https://github.com/troystaylor/Connector-Code/tree/main/Download%20File%20without%20Connector%20Authorization)
+This custom code downloads a file from a URL provided as a query parameter, bypassing the connector's standard authorization. Useful for downloading files from URLs that don't require the connector's credentials.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
