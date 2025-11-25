@@ -19,6 +19,9 @@ Custom code for JWT-based authentication. User creating connection reference wil
 ### [OAuth 2.0 (non-standard)](https://github.com/troystaylor/Connector-Code/tree/main/OAuth%202.0%20(non-standard))
 Custom code examples for handling non-standard OAuth 2.0 authentication flows. Includes implementations for Precisely API (client credentials with basic auth) and MailPlus. Useful for APIs that don't follow standard OAuth patterns.
 
+### [OAuth 2.0 PKCE](https://github.com/troystaylor/Connector-Code/tree/main/OAuth%202.0%20PKCE)
+Custom code needed to fix the Airtable connector when the service moved from API key to OAuth 2.0 PKCE authentication.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
