@@ -4,6 +4,9 @@ This repo contains script files that will work with Power Platform connectors.
 ### [Bearer Token Authorization](https://github.com/troystaylor/Connector-Code/tree/main/Bearer%20Token%20Authorization)
 This custom code works with the API Key security method when the parameter name is set to Authorization. It removes the need to ask the user to enter "Bearer " before the token value.
 
+### [Convert String to Hash](https://github.com/troystaylor/Connector-Code/tree/main/Convert%20String%20to%20Hash)
+This custom code converts a string to a hash using MD5, SHA1, SHA256, or SHA512 algorithms. The script takes a string and hash type as input and returns the hashed value.
+
 ### [Copilot Instructions](https://github.com/troystaylor/Connector-Code/tree/main/.github)
 This folder can be added to a .github folder in your VS Code workspace to help validate Power Platform connector artifacts.
 
